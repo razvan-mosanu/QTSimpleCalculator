@@ -13,18 +13,20 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        include/aritmetica.h
+        include/mainwindow.h
+        include/mathtools.h
+        src/aritmetica.cpp
+        src/main.cpp
+        src/mainwindow.cpp
+        src/mainwindow.ui
+        src/mathtools.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Calculator
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        aritmetica.h aritmetica.cpp
-        mathtools.h mathtools.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Calculator APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -43,6 +45,8 @@ else()
         )
     endif()
 endif()
+
+target_include_directories(Calculator PRIVATE include)
 
 target_link_libraries(Calculator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
