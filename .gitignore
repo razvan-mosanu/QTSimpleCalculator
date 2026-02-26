@@ -1,0 +1,14 @@
+build/
+*.user
+*.user.*
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+debug/
+release/
+Makefile*
+object_script.*
