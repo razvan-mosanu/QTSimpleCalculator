@@ -119,7 +119,7 @@ void AranjareButoane::putere()
 void AranjareButoane::radical()
 {
     DateInput d = iaDatele();
-    if(d.valid == false)
+    if(d.valid == false || d.b < 0)
     {
         afiseazaMesaj("Introdu date corecte!");
         return;
